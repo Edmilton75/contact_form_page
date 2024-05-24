@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
+.form {
+  font-family: "Inter", sans-serif;
+  max-width: 1080px;
+  width: 90vh;
+  padding: 2rem;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  color: #282828;
+  border-radius: 10px;
+  margin-top: 10rem;
+}
+
+.title {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+input[type="text"],
+input[type="email"] {
+  border-radius: 8px;
+  border: 1px, solid #ccc;
+  height: 2rem;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.contain-name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 20px;
+}
+
+.contain-radios {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  height: 2rem;
+  margin-bottom: 1rem;
+}
+
+.contain-radio {
+  border: 1px solid #ccc;
+  width: 100%;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.contain-radio > div {
+  display: flex;
+  align-items: center;
+}
+
+.query-types {
+  margin-bottom: 0.5rem;
+}
+
+textarea {
+  resize: none;
+  height: 100px;
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
