@@ -34,7 +34,7 @@ input[type="email"] {
 
 input[type="text"]:hover,
 input[type="email"]:hover {
-  border: 2px solid #11a88d;
+  border: 1px solid #11a88d;
 }
 
 input[type="text"]:focus,
@@ -108,10 +108,43 @@ button {
   border-radius: 6px;
   color: #fff;
   font-weight: 700;
+  cursor: pointer;
 }
 
 button:hover {
   background-color: #11a88d;
   border: 1px solid #11a88d;
   transition: 0.3s;
+}
+
+.container-radio {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media only screen and (min-width: 600px) {
+  .form {
+    width: 100%;
+  }
+
+  .container-names {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  .container-radio {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: 1rem;
+  }
+
+  .input-radio {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }

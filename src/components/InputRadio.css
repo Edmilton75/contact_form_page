@@ -1,0 +1,17 @@
+.input-radio {
+  border: 1px solid #ccc;
+  padding: 5px;
+  display: flex;
+  align-items: end;
+  border-radius: 6px;
+  margin-block: 8px;
+  font-size: 12px;
+}
+
+.input-radio > label {
+  cursor: pointer;
+}
+
+.input-radio > input {
+  cursor: pointer;
+}

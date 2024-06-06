@@ -1,75 +1,48 @@
-import React, { HtmlHTMLAttributes, useState } from "react";
-import Header from "./Header";
+import React, { useState } from "react";
 import "./App.css";
-import Input from "./Input";
-import Checkbox from "./Checkbox";
-import Buttom from "./Button";
+import Buttom from "./components/Button";
+import Checkbox from "./components/Checkbox";
+import Header from "./components/Header";
+import TextInput from "./components/TextInput";
+import InputRadio from "./components/InputRadio";
 
 const App = () => {
-  const [form, setForm] = useState({
-    nome: "",
-    sobrenome: "",
-    email: "",
-  });
+  const [firtName, setFirtsName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
 
-  const handleSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    console.log(form);
-  };
-
-  const handleChange:
-    | React.ChangeEventHandler<HTMLInputElement>
-    | undefined = ({ target }) => {
-    const { id, value } = target;
-    setForm({ ...form, [id]: value });
-  };
+    console.log(firtName);
+    console.log(lastName);
+    console.log(email);
+  }
 
   return (
     <form onSubmit={handleSubmit} className="form">
       <Header />
-      <div className="contain-name">
-        <Input
-          name="firts-name"
-          id="nome"
+      <div className="container-names">
+        <TextInput
           type="text"
-          children="Firts name"
-          width="100%"
-          onChange={handleChange}
+          label="Firts name"
+          onChange={(e) => setFirtsName(e.target.value)}
         />
-        <Input
-          name="last-name"
-          id="sobrenome"
+        <TextInput
           type="text"
-          children="Last name"
-          width="100%"
-          onChange={handleChange}
+          label="Last name"
+          onChange={(e) => setEmail(e.target.value)}
         />
       </div>
-      <Input
-        name="email-Address"
-        id="email"
+      <TextInput
         type="email"
-        children="Email Address"
-        onChange={handleChange}
+        label="Email Adress"
+        onChange={(e) => setLastName(e.target.value)}
       />
-      <p className="query-types">Query Type</p>
-      <div className="contain-radios">
-        <div className="contain-radio">
-          <Input
-            name="General"
-            id="General"
-            type="radio"
-            children="General Enquiry"
-          />
-        </div>
-        <div className="contain-radio">
-          <Input
-            name="Suport"
-            id="Suport"
-            type="radio"
-            children="Suport Request"
-          />
-        </div>
+
+      <p>Query type</p>
+      <div className="container-radio">
+        <InputRadio label="General Enguire" defaultChecked />
+        <InputRadio label="Suporte Request" />
       </div>
 
       <p className="query-types">Message:</p>
