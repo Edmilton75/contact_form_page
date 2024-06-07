@@ -1,11 +1,11 @@
 import React from "react";
 import "./InputRadio.css";
 
-type textInputProps = React.ComponentProps<"input"> & {
+type InputRadioProps = React.ComponentProps<"input"> & {
   label: string;
 };
 
-const InputRadio = ({ label, ...props }: textInputProps) => {
+const InputRadio = ({ label, ...props }: InputRadioProps) => {
   return (
     <div className="input-radio">
       <input type="radio" name="radio" id={label} {...props} />

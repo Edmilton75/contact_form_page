@@ -1,24 +1,24 @@
 import React, { useState } from "react";
+import "./Checkbox.css";
 
-type Checkbox = {
-  type: string;
+type Checkbox = React.ComponentProps<"input"> & {
   label: string;
-  id: string;
+
   check?: boolean;
   setCheck?: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const Checkbox = (props: Checkbox) => {
+const Checkbox = ({ label, ...props }: Checkbox) => {
   const [check, setCheck] = useState(false);
   return (
     <div className="checkbox">
       <input
-        id={props.id}
-        type={props.type}
+        id="checkbox"
         checked={check}
         onClick={() => setCheck(!check)}
+        {...props}
       />
-      <label>{props.label}</label>
+      <label htmlFor="checkbox">{label}</label>
     </div>
   );
 };

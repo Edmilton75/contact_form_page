@@ -93,12 +93,6 @@ textarea:focus {
   border: 2px solid #11a88d;
 }
 
-.checkbox {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  color: #282828;
-}
-
 button {
   background: #fff;
   height: 2rem;
