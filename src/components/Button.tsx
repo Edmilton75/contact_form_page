@@ -1,5 +1,3 @@
-import React from "react";
-
 type Btn = {
   type: "submit" | "reset" | "button" | undefined;
   textBtn: string;

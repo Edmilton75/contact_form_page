@@ -1,36 +1,45 @@
 import React, { useState } from "react";
 import "./App.css";
-import Buttom from "./components/Button";
+import Button from "./components/Button";
 import Checkbox from "./components/Checkbox";
 import Header from "./components/Header";
 import TextInput from "./components/TextInput";
 import InputRadio from "./components/InputRadio";
 
 const App = () => {
-  const [firtName, setFirtsName] = useState("");
+  /*   const [firtName, setFirtsName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
-  const [checkbox, setCheckbox] = useState("");
-  const [radio, setRadio] = useState("");
-  const [textArea, setTextArea] = useState("");
+  const [checkbox, setCheckbox] = useState(false);
+  const [radio, setRadio] = useState("General Enguire");
+  const [textArea, setTextArea] = useState(""); */
+  const [form, setForm] = useState({
+    nome: "",
+    sobrenome: "",
+    email: "",
+    checkbox: false,
+    radio: "General Enguire",
+    textarea: "",
+  });
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    console.log(`Firts Name: ${firtName}`);
-    console.log(`Last name: ${lastName}`);
-    console.log(`E-mail: ${email}`);
-    if (textArea) {
-      console.log(`Message: ${textArea}`);
+    console.log(`Firts Name: ${form.nome}`);
+    console.log(`Last name: ${form.sobrenome}`);
+    console.log(`E-mail: ${form.email}`);
+    if (form.textarea) {
+      console.log(`Message: ${form.textarea}`);
     }
-    if (radio) {
-      console.log(`Query type: ${radio}`);
+    if (form.radio) {
+      console.log(`Query type: ${form.radio}`);
     }
 
-    if (checkbox) {
+    if (form.checkbox) {
       console.log("aceito os termos!");
     } else {
       console.log("nao aceito os termos");
     }
+    console.log({ form });
   }
 
   return (
@@ -41,31 +50,32 @@ const App = () => {
           type="text"
           label="Firts name"
           required
-          onChange={(e) => setFirtsName(e.target.value)}
+          onChange={(e) => setForm({ ...form, nome: e.target.value })}
         />
         <TextInput
           type="text"
           label="Last name"
           required
-          onChange={(e) => setLastName(e.target.value)}
+          onChange={(e) => setForm({ ...form, sobrenome: e.target.value })}
         />
       </div>
       <TextInput
         type="email"
         label="Email Adress"
         required
-        onChange={(e) => setEmail(e.target.value)}
+        onChange={(e) => setForm({ ...form, email: e.target.value })}
       />
 
       <p>Query type</p>
       <div className="container-radio">
         <InputRadio
           label="General Enguire"
-          onChange={(e) => setRadio(e.target.id)}
+          defaultChecked
+          onChange={(e) => setForm({ ...form, radio: e.target.id })}
         />
         <InputRadio
           label="Suporte Request"
-          onChange={(e) => setRadio(e.target.id)}
+          onChange={(e) => setForm({ ...form, radio: e.target.id })}
         />
       </div>
 
@@ -75,16 +85,16 @@ const App = () => {
         id="message"
         name="message"
         placeholder="..."
-        onChange={(e) => setTextArea(e.target.value)}
+        onChange={(e) => setForm({ ...form, textarea: e.target.value })}
       ></textarea>
 
       <Checkbox
         type="checkbox"
         label="I consent to being contacted by the team"
-        onChange={(e) => setCheckbox(e.target.value)}
+        onChange={(e) => setForm({ ...form, checkbox: e.target.checked })}
         required
       />
-      <Buttom type="submit" textBtn="Submit" />
+      <Button type="submit" textBtn="Submit" />
     </form>
   );
 };
