@@ -48,7 +48,7 @@ const App = () => {
       <div className="container-names">
         <TextInput
           type="text"
-          label="Firts name"
+          label="First name"
           required
           onChange={(e) => setForm({ ...form, nome: e.target.value })}
         />
@@ -61,7 +61,7 @@ const App = () => {
       </div>
       <TextInput
         type="email"
-        label="Email Adress"
+        label="Email Address"
         required
         onChange={(e) => setForm({ ...form, email: e.target.value })}
       />
@@ -69,12 +69,12 @@ const App = () => {
       <p>Query type</p>
       <div className="container-radio">
         <InputRadio
-          label="General Enguire"
+          label="General Enquire"
           defaultChecked
           onChange={(e) => setForm({ ...form, radio: e.target.id })}
         />
         <InputRadio
-          label="Suporte Request"
+          label="Support Request"
           onChange={(e) => setForm({ ...form, radio: e.target.id })}
         />
       </div>
